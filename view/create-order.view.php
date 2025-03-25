@@ -14,12 +14,17 @@
 </nav>
 </header>      
     <main>
-    <h3><?php echo $message; ?></h3>
+
+
+    <!--si la clé existe dans le tableau "vous avez une commande en attente"--> 
+    <?php if (array_key_exists("order", $_SESSION)) { ?>
+		<p>Vous avez une commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?></p>
+	<?php } ?>
 
     <form method="POST">
 
         <label for="quantity">Quantity
-            <input type="number" name="quantity" />
+            <input type="number" name="quantity"/>
         </label>
 
         <label for="product">Produit
