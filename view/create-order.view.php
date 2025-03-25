@@ -14,22 +14,23 @@
 </nav>
 </header>      
     <main>
-          <h3><?php echo $message; ?></h3>
+    <h3><?php echo $message; ?></h3>
 
-          <form method="POST">
+    <form method="POST">
 
-                <label for="quantity">;
-                <type number="quantity" name="quantity" /> >;
-</label>
-            <label for= product>;
-            <select name= product>;
-                <option value="teeshirtbonjour"><Bonjour</option>
+        <label for="quantity">Quantity
+            <input type="number" name="quantity" />
+        </label>
+
+        <label for="product">Produit
+            <select name="product">
+                <option value="teeshirtbonjour">Bonjour</option>
                 <option value="teeshirtbonsoir">Bonsoir</option>
                 <option value="teeshirtmaman">Maman</option>
-</select>
+            </select>
+        </label>
 
-</label>
-            <button type="submit">Créer ma commande</button>
+        <button type="submit">Créer ma commande</button>
 
 </form>            
    
