@@ -9,4 +9,3 @@ $products = [
 	"Teeshirt Mathieu Rozand"
 ]; 
 
-function OrderForUser
