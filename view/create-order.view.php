@@ -15,12 +15,13 @@
 </header>      
     <main>
 
+    <p><?php echo $message; ?></p>
 
-    <!--si la clé existe dans le tableau "vous avez une commande en attente"--> 
-    <?php if (array_key_exists("order", $_SESSION)) { ?>
-        <!--je récupère la commande-->
-		<p>Vous avez une commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?></p>
-	<?php } ?>
+    <?php if ($orderByUser) {?>
+			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
+        <p>Créée le <?php echo $orderByUser['createAt']->format('y-m-d'); ?></p>
+		<?php } ?>
+
 
     <form method="POST">
 
@@ -28,17 +29,11 @@
             <input type="number" name="quantity"/> 
         </label>
 
-        <label for="product">Produit
+        <label for="product">Product
             <select name="product">
-
-            //affiche chaque produit    
-            <?php foreach ($products as $product){ ?>
-              <option value="<?php echo $product; ?>"><?php echo $product; ?></option>
-            <?php } ?>
-
-                <option value="teeshirtbonjour">Bonjour</option>
-                <option value="teeshirtbonsoir">Bonsoir</option>
-                <option value="teeshirtmaman">Maman</option>
+                <?php foreach ($products as $product) { ?>
+                <option value="<?php echo $product; ?>"><?php echo $product; ?><?php echo $product; ?></option>
+                <?php } ?>
             </select>
         </label>
 

@@ -9,15 +9,22 @@ function findOrderByUser() {
 	}
 }
 
- // je crée une commande avec des produits et quantités
+ // si la commande est inferieure à 0 ou superieur à 3, j'interdit de crée la commande
  function createOrder($product, $quantity) {
-	$order = [ 
-		"product"=> $product,
-		"quantity"=> $quantity 
-	];
+	if ($quantity < 0 ){
+		throw new Exception ("Interdiction de mettre une quantité < 0"); 
+	}  else if ($quantity > 3) {
+		throw new Exception ("Interdiction de mettre une quantité > 3");
+	} else { 
+		$order = [ 
+		"product"=> $product, 
+		"quantity"=> $quantity,
+		"createAt"=> new Datetime()
+		];
 
-	return $order;
-}
+		return $order;
+	}
+ }
 
  // je sauvegarde ma commande 
  function saveOrder($order){

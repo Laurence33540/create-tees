@@ -10,19 +10,23 @@ require_once ('../model/order.repository.php');
 //je démarre ma session pour créer un identifiant
 session_start();
 
+$message ="";
+
 //si le produit et la quantité, je créer et je sauvegarde ma commande
 if (array_key_exists("product", $_POST) &&
    array_key_exists("quantity", $_POST)){
 
-  
-    
-   // je crée ma commande et je la sauvegarde avec produits et quantités
-    $order= createOrder($_POST['product'], $_POST['quantity']);
-    saveOrder($order);
+    //j'essaie de créer la commande sauf si le message s'affiche
+    try {
+		$order = createOrder($_POST['product'], $_POST['quantity']);
+		saveOrder($order);
+	} catch(Exception $e) {
+		$message = $e->getMessage();
+	}
+
 }
 
-
-    //venir créer sa zone de stockage dans le tableau.stocker ma commande
+    //je récupère ma zone de stockage dans le tableau.stocker ma commande
     $orderByUser = findOrderByUser();
 
 
