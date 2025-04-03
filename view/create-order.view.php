@@ -18,17 +18,24 @@
 
     <!--si la clé existe dans le tableau "vous avez une commande en attente"--> 
     <?php if (array_key_exists("order", $_SESSION)) { ?>
+        <!--je récupère la commande-->
 		<p>Vous avez une commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?></p>
 	<?php } ?>
 
     <form method="POST">
 
         <label for="quantity">Quantity
-            <input type="number" name="quantity"/>
+            <input type="number" name="quantity"/> 
         </label>
 
         <label for="product">Produit
             <select name="product">
+
+            //affiche chaque produit    
+            <?php foreach ($products as $product){ ?>
+              <option value="<?php echo $product; ?>"><?php echo $product; ?></option>
+            <?php } ?>
+
                 <option value="teeshirtbonjour">Bonjour</option>
                 <option value="teeshirtbonsoir">Bonsoir</option>
                 <option value="teeshirtmaman">Maman</option>
