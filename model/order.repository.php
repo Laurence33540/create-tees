@@ -9,7 +9,7 @@ function findOrderByUser() {
 	}
 }
 
- // si la commande est inferieure à 0 ou superieur à 3, j'interdit de crée la commande
+ // si la commande est inferieure à 0 ou superieur à 3, j'interdit de crée la commande en renvoyant une exception
  function createOrder($product, $quantity) {
 	if ($quantity < 0 ){
 		throw new Exception ("Interdiction de mettre une quantité < 0"); 
@@ -20,6 +20,7 @@ function findOrderByUser() {
 		"product"=> $product, 
 		"quantity"=> $quantity,
 		"createAt"=> new Datetime()
+		"status" => "cart" //on rajoute un status 
 		];
 
 		return $order;
@@ -30,4 +31,4 @@ function findOrderByUser() {
  function saveOrder($order){
  	$_SESSION["order"]= $order;
 }
-?>
+?> 

@@ -19,7 +19,7 @@
 
     <?php if ($orderByUser) {?>
 			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
-        <p>Créée le <?php echo $orderByUser['createAt']->format('y-m-d'); ?></p>
+        <p>Créée le <?php echo $orderByUser['createAt']->format('y-m-d'); ?><?php echo $orderByUser['status']; ?></p>
 		<?php } ?>
 
 

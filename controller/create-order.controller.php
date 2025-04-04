@@ -16,7 +16,7 @@ $message ="";
 if (array_key_exists("product", $_POST) &&
    array_key_exists("quantity", $_POST)){
 
-    //j'essaie de créer la commande sauf si le message s'affiche
+    //j'essaie de créer la commande sauf si une erreur s'affiche
     try {
 		$order = createOrder($_POST['product'], $_POST['quantity']);
 		saveOrder($order);
