@@ -10,6 +10,7 @@ $orderByUser = findOrderByUser();
 //savoir si l'utilisateur à cliquer sur payer en passant par Form et sauvegarder commande utilisateur.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 $orderByUser['status']= "paid"
+$orderByUser['canceled'] = "cancel"
 saveOrder= ($orderByUser);
 }
 
