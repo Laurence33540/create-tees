@@ -19,7 +19,7 @@ function findOrderByUser() {
 		$order = [ 
 		"product"=> $product, 
 		"quantity"=> $quantity,
-		"createAt"=> new Datetime()
+		"createAt"=> new Datetime(),
 		"status" => "cart" //on rajoute un status 
 		];
 

@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li>Créer une commande</li>
-</ul>
-</nav>
-</header>      
+<?php require_once("../view/_header.view.php"); ?>
+
     <main>
 
     <p><?php echo $message; ?></p>
 
     <?php if ($orderByUser) {?>
-			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
-        <p>Créée le <?php echo $orderByUser['createAt']->format('y-m-d'); ?><?php echo $orderByUser['status']; ?></p>
+		<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
+        <p>Créée le <?php echo $orderByUser['createAt']->format('y-m-d'); ?></p>
+        <p>Votre commande est en statut :<?php echo $orderByUser['status']; ?></p>
 		<?php } ?>
 
 
