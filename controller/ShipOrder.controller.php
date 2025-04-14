@@ -1,24 +1,23 @@
 <?php
 
+require_once('../config.php');
+require_once('../model/order.repository.php')
+
 session_start();
 
-require_once('../model/order.repository.php');
+$orderByUser= findOrderByUser();
 
-// commande de l'utilisateur
-$orderByUser = findOrderByUser();
+ $message = "";
 
-//savoir si l'utilisateur à cliquer sur payer en passant par Form et sauvegarder commande utilisateur.
+//savoir si l'utilisateur à cliquer sur Shipped en passant par Form et sauvegarder commande utilisateur.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-$orderByUser['status']= "Shipped"
+$orderByUser['status']= "SHIPPED"
 saveOrder= ($orderByUser);
-}
- //j'essaie de créer la commande sauf si une erreur s'affiche
- try {
-    $order = createOrder($_POST['product'], $_POST['quantity']);
-    saveOrder($order);
-} catch(Exception $e) {
-    $message = $e->getMessage();
+
+$message ="demande d'expédition confirmée";
+
+}else {
+	$message = "";
 }
 
-
-require_once('../view/pay-order.view.php');
+require_once('../view/ShipOrder.view.php');
